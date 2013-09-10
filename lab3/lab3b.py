@@ -1,6 +1,8 @@
-
-# Nano <3
-
+# pnr.py
+# @author Felix Ekdahl
+# Student-ID: felno295
+# A program built for science!
+# Assignment 3B from: http://www.ida.liu.se/~TDDC66/python/la/la3.shtml
 
 SC = {"sant" : 1, "falskt" : 0, "ELLER" : 1, "OCH" : 2}
 
