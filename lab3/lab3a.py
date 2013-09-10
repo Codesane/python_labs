@@ -1,4 +1,4 @@
-# lab3B.py
+# lab3A.py
 # @author Felix Ekdahl
 # Student-ID: felno295
 # Assignment 3A from: http://www.ida.liu.se/~TDDC66/python/la/la3.shtml
