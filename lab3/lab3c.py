@@ -1,8 +1,3 @@
-# lab3C.py
-# @author Felix Ekdahl
-# Student-ID: felno295
-# Assignment 3C from: http://www.ida.liu.se/~TDDC66/python/la/la3.shtml
-
 from math import fabs, sqrt
 
 map = []
@@ -55,7 +50,6 @@ def rakna(dir, d, spelare):
 	print(cnt)
 	
 def narmaste_figur(x, y):
-	if len(map) <= 1: return None
 	retVal = ()
 	minLen = -1
 	for i in map:
