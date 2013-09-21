@@ -1,7 +1,7 @@
 # lab3B.py
 # @author Felix Ekdahl
 # Student-ID: felno295
-# Assignment 3B from: http://www.ida.liu.se/~TDDC66/python/la/la3.shtml
+# Assignment 3B from: http://www.ida.liu.se/~TDDD64/python/la/la4.shtml
 
 LOGIC = {"ELLER" : 1, "OCH" : 2}
 TEXT_TO_BOOL = {"falskt" : False, "sant" : True}

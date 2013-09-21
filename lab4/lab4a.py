@@ -20,5 +20,4 @@ def powerset2(lst, iter, retList = []):
 	retList.append(iter[0])
 	return powerset2(lst, iter[1:], retList)
 
-
 print(powerset(['a', 'b']))
