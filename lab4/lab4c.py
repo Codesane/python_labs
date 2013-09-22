@@ -7,11 +7,13 @@ import math
 
 dx = 0.001
 
+# Assignment 1 / 2
 def glatta(fn):
 	return lambda x: ((fn(x - dx) + fn(x) + fn(x + dx)) / 3)
 
 glattad_sin = glatta(math.sin)
 
+# Assignment 2 / 2
 def mangfalt_glattad(fn, n):
 	for i in range(n):
 		fn = glatta(fn)
