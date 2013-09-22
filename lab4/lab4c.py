@@ -1,3 +1,8 @@
+# lab4C.py
+# @author Felix Ekdahl
+# Student-ID: felno295
+# Assignment 4C from: http://www.ida.liu.se/~TDDD64/python/la/la4.shtml
+
 import math
 
 dx = 0.001
@@ -12,6 +17,5 @@ def mangfalt_glattad(fn, n):
 		fn = glatta(fn)
 	return fn
 	
-mangfald = mangfalt_glattad(math.sin, 5)
-
-print(mangfald(0.456))
+print(mangfalt_glattad(math.sin, 5)(0.456))
+print(mangfalt_glattad(lambda x: x**2, 5)(4))
