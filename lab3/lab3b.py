@@ -1,21 +1,29 @@
 # lab3B.py
 # @author Felix Ekdahl
 # Student-ID: felno295
-# Assignment 3B from: http://www.ida.liu.se/~TDDC66/python/la/la3.shtml
+# Assignment 3B from: http://www.ida.liu.se/~TDDD64/python/la/la4.shtml
 
-SC = {"sant" : 1, "falskt" : 0, "ELLER" : 1, "OCH" : 2}
+LOGIC = {"ELLER" : 1, "OCH" : 2}
+TEXT_TO_BOOL = {"falskt" : False, "sant" : True}
 
-def logikvarde(st, vars):
+def logikvarde(st, vars, bVal = True):
 	vars["sant"] = "sant"
 	vars["falskt"] = "falskt"
-	l1 = getBool(st)
-	l2 = getBool(l1[1][2])
-	return (SC[vars[l1[1][0]]] if l1[0] else not SC[vars[l1[1][0]]]) + (SC[vars[l2[1]]] if l2[0] else not SC[vars[l2[1]]]) >= SC[l1[1][1]]
+	if st[0] == "ICKE":
+		if isinstance(st[1], str):
+			if st[1] in vars.keys():
+				return not TEXT_TO_BOOL[vars[st[1]]] if bVal else TEXT_TO_BOOL[vars[st[1]]]
+		return logikvarde(st[1], vars, not bVal)
+	elif st[0] in vars.keys():
+		lhBool = logikvarde(st[2], vars)
+		vlVar = TEXT_TO_BOOL[vars[st[0]]]
+		return (lhBool + vlVar) >= LOGIC[st[1]] if bVal else not (lhBool + vlVar) >= LOGIC[st[1]]
+	elif isinstance(st, str):
+		return TEXT_TO_BOOL[vars[st]]
+	else:
+		return bVal;
 
-def getBool(st, bVal = True):
-	return getBool(st[1], not bVal) if st[0] == "ICKE" else (bVal, st)
-	
 
-print(logikvarde(["öppen_dörr", "OCH", "katten_borta"], 
-               {"öppen_dörr" : "falskt", "katten_borta" : "sant", "katten_sover" : "sant"}))
-	
+
+print(logikvarde(["ICKE", ["ICKE", ["ICKE", ["katten_sover", "ELLER", ["ICKE", "katten_sover"]]]]],
+               {"katten_sover": "falskt"}))
