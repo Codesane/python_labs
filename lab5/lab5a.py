@@ -46,7 +46,6 @@ def get_logic(exp):
 			return (int(get_expression(exp[0])) == int(get_expression(exp[2]))) # I seriously hadto conver them again...
 
 def eval_calc(lang):
-	variables['k'] = 0
 	if isinstance(lang, list) and lang[0] == 'calc':
 		execute(lang[1:])
 
