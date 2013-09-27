@@ -1,5 +1,3 @@
-import sys
-
 variables = {}
 
 def isassignment(p):
@@ -70,11 +68,36 @@ def execute(statements):
 		assign_var(st)
 	elif st[0] == 'while':
 		execwhile(st[1], st[2:])
+	elif st[0] == 'read':
+		read_var(st[1])
 	if len(statements) > 1:
 		execute(statements[1:])
 
-calc1 = ['calc',['set', 'n', '0'], 
-		['while', ['n', '<', 10],
-			['set', 'n', ['n', '+', '1']],
-			['print', 'n']]]
-eval_calc(calc1)
+calc1 = ['calc', ['set', 'a', '5'], ['print', 'a']]
+
+calc2 = ['calc', ['set', 'x', 7],
+		 ['set', 'y', 12],
+		 ['set', 'z', ['x', '+', 'y']],
+		 ['print', 'z']]
+
+calc3 = ['calc', ['read', 'p1'],
+		 ['set', 'p2', 47],
+		 ['set', 'p3', 179],
+		 ['set', 'result', [['p1', '*', 'p2'], '-', 'p3']],
+		 ['print', 'result']]
+calc4 = ['calc', ['read', 'n'],
+		 ['set', 'sum', 0],
+		 ['while', ['n', '>', 0],
+		 	['set', 'sum', ['sum', '+', 'n']],
+			['set', 'n', ['n', '-', 1]]],
+		 ['print', 'sum']]
+
+calc_progs = (calc1, calc2, calc3, calc4)
+
+if __name__ == "__main__":
+	k = 1
+	for c in calc_progs:
+		print("Running Test", k)
+		eval_calc(c)
+		k += 1
+		print("\n")
