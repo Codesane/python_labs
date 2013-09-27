@@ -1,3 +1,8 @@
+# lab5A.py
+# @author Felix Ekdahl
+# Student-ID: felno295
+# Assignment 5A from: http://www.ida.liu.se/~TDDD64/python/la/la5.shtml
+
 variables = {}
 
 def isassignment(p):
