@@ -1,3 +1,8 @@
+# lab7A.py
+# @author Felix Ekdahl
+# Student-ID: felno295
+# http://www.ida.liu.se/~TDDD64/python/la/la7.shtml
+
 # Encoding: ISO-8859-1
 
 db = [
@@ -39,13 +44,30 @@ def match(seq, pattern):
         return False
 
 
+def normalize_val(val):
+	if isinstance(val, list) and len(val) > 1:
+		return val[1] if isinstance(val[1], list) else [val[1]]
+	else:
+		if val == '--':
+			return ['--']
+		else:
+			return [val]
 
-def search(expr, pdb):
-	if expr[0] == '--':
-		pass
-	elif isinstance(expr[0], list):
+def search(pattern, pdb):
+	pA = normalize_val(pattern[0])
+	pT = normalize_val(pattern[1])
+	pY = normalize_val(pattern[2])
+
+	res = []
+	for segment in pdb:
+		dA = normalize_val(segment[0])
+		dT = normalize_val(segment[1])
+		dY = normalize_val(segment[2][1])
+		if match(dA, pA) and match(dT, pT) and match(dY, pY):
+			res.append(segment)
 		
-
-
-#search(['titel', ['&', '&']], '--'], db)
+	return res
+	
+	
+print(search(['--', ['titel', ['&', '&']], '--'], db))
 
