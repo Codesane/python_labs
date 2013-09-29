@@ -244,14 +244,14 @@ def start_klockslag(per):
 	if not är_tidsperiod(per):
 		raise Exception("Parametervärdet är inte en tidsperiod!")
 	else:
-		tid = packa_upp(per)[0]'	
+		tid = packa_upp(per)[0]	
 		if är_klockslag(tid):
 			return tid
 
 # Funktionen slut_klockslag ska omimplementeras i Uppgift 6A.
 def slut_klockslag(per):
 	# Dålig implementation, bryter mot abstraktionslagren! -- Fixed
-		if not är_tidsperiod(per):
+	if not är_tidsperiod(per):
 		raise Exception("Parametervärdet är inte en tidsperiod!")
 	else:
 		tid = packa_upp(per)[1]
