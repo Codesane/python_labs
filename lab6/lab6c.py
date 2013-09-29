@@ -20,7 +20,6 @@ def avboka(namn, dag, månad, stid):
 	
 	månad = packa_upp(månadsalmanacka(skapa_månad(månad), hämta_almanacka(namn)))
 	for i in range(0, len(månad)):
-		print
 		månad[i] = packa_ihop(dag, packa_ihop('dagalmanacka', avbokad_lista)) if månad[i][0] == dag else månad[i][0]
 
 skapa("Peter")

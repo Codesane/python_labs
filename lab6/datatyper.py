@@ -516,9 +516,9 @@ def är_överlappande(tp1, tp2):
 def överlapp(tp1, tp2):
 	# Dålig implementation, bryter mot abstraktionen. -- Fixed
 	""" Object (tidsperiod, (m1, m2)) """
-	min1 = senaste_klockslag(start_klockslag(tp1), slut_klockslag(tp1))
-	min2 = tidigaste_klockslag(slut_klockslag(tp2), slut_klockslag(tp2))
-	return ('tidsperiod', (min1, min2)) # "lite" fräschare
+	dt1 = senaste_klockslag(start_klockslag(tp1), slut_klockslag(tp1))
+	dt2 = tidigaste_klockslag(slut_klockslag(tp2), slut_klockslag(tp2))
+	return ('tidsperiod', (dt1, dt2)) # "lite" fräschare
 
 
 
